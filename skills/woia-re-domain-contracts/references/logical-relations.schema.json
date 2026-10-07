@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema",
+    "version",
+    "org_scope",
+    "relations",
+    "physical_dbms",
+    "runtime_enforcement"
+  ],
+  "properties": {
+    "schema": {
+      "const": "dev.woia.real-estate.logical-relations/v1"
+    },
+    "version": {
+      "const": "0.5.0"
+    },
+    "org_scope": {
+      "type": "string"
+    },
+    "physical_dbms": {
+      "type": "null"
+    },
+    "runtime_enforcement": {
+      "const": false
+    },
+    "relations": {
+      "type": "array",
+      "minItems": 85,
+      "maxItems": 85,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "fact_grain",
+          "candidate_keys",
+          "semantic_owner",
+          "dependency_note"
+        ],
+        "properties": {
+          "name": {
+            "enum": [
+              "Subject",
+              "SubjectExternalRef",
+              "SubjectAlias",
+              "ContactPoint",
+              "SubjectContactPoint",
+              "Property",
+              "PropertyContainment",
+              "PropertyRightClaim",
+              "Mandate",
+              "MandateVersion",
+              "MandateAuthorityScope",
+              "MandateParticipant",
+              "Listing",
+              "ListingVersion",
+              "ListingPropertyScope",
+              "ChannelPublication",
+              "ChannelPublicationObservation",
+              "Opportunity",
+              "OpportunityParticipant",
+              "OpportunityPropertyInterest",
+              "Negotiation",
+              "NegotiationParticipant",
+              "NegotiationPropertyScope",
+              "Offer",
+              "OfferRelation",
+              "Reservation",
+              "ReservationCondition",
+              "SaleTransaction",
+              "SaleMilestone",
+              "RentalApplication",
+              "ApplicationParticipant",
+              "ApplicationEvidenceLink",
+              "Guarantee",
+              "GuaranteeParticipant",
+              "GuaranteeCoverage",
+              "Lease",
+              "LeaseVersion",
+              "LeaseParticipant",
+              "LeasePropertyScope",
+              "LeaseGuarantee",
+              "LeaseObligationRule",
+              "LeaseOccupancyFact",
+              "Handover",
+              "Charge",
+              "ChargeAdjustment",
+              "FinancialOpeningPosition",
+              "PaymentObservation",
+              "Payment",
+              "PaymentEvidenceLink",
+              "Allocation",
+              "AllocationCompensation",
+              "JournalTransaction",
+              "LedgerEntry",
+              "ReconciliationSourceLine",
+              "ReconciliationMatch",
+              "OwnerSettlement",
+              "OwnerSettlementDocument",
+              "SettlementExtraction",
+              "SettlementReconciliation",
+              "SettlementDeliveryPackage",
+              "MaintenanceCase",
+              "MaintenanceReport",
+              "VendorQuote",
+              "VendorQuoteLine",
+              "WorkOrder",
+              "MaintenanceOutcome",
+              "MaintenanceCostProposal",
+              "PropertyServiceAccount",
+              "PropertyServiceResponsibility",
+              "PropertyServiceCycle",
+              "PropertyServiceObservation",
+              "PropertyServiceDispute",
+              "Document",
+              "DocumentVersion",
+              "DocumentSubjectLink",
+              "DocumentPropertyLink",
+              "DocumentMandateLink",
+              "DocumentLeaseLink",
+              "DocumentSettlementLink",
+              "DocumentMaintenanceLink",
+              "FilePlacement",
+              "Appointment",
+              "AppointmentParticipant",
+              "Interaction",
+              "InteractionParticipant"
+            ]
+          },
+          "fact_grain": {
+            "type": "string",
+            "minLength": 1
+          },
+          "candidate_keys": {
+            "type": "string",
+            "minLength": 1
+          },
+          "semantic_owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dependency_note": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}
