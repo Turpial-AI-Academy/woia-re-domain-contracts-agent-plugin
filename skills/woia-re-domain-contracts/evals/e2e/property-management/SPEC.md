@@ -1,6 +1,6 @@
 ## 7. E2E-C — Property Management
 
-**Owner:** Property Management.  
+**Owner:** Property Management.
 **Permanent spec home:** `woia-re-domain-contracts/evals/e2e/property-management`.
 
 Run both:

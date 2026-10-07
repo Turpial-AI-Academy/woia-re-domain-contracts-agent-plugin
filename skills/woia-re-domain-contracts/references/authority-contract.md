@@ -6,9 +6,9 @@ Historical implementation-status lines describe source chronology, not current p
 
 # 24 — Authority / Finance Final Contract
 
-**Status:** ACCEPTED_PRE_B5_CONTRACT  
-**Decision:** ADR-0029  
-**Date:** 2026-10-06  
+**Status:** ACCEPTED_PRE_B5_CONTRACT
+**Decision:** ADR-0029
+**Date:** 2026-10-06
 **Implementation:** NOT_AUTHORIZED
 
 ## 1. Purpose

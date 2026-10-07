@@ -12,9 +12,9 @@ ADR-0031/docs26 satisfy the B5 input contract below. The graph assigns `woia-re-
 
 B5 planning is regenerated and the final pre-build audit passed. Build remains blocked pending explicit B6 authorization.
 
-**Status:** ACCEPTED_PRE_B5_QUALIFICATION_DESIGN  
-**Decision:** ADR-0030  
-**Date:** 2026-10-06  
+**Status:** ACCEPTED_PRE_B5_QUALIFICATION_DESIGN
+**Decision:** ADR-0030
+**Date:** 2026-10-06
 **Execution:** NOT_RUN
 
 ## 1. Purpose
@@ -92,7 +92,7 @@ The locally supplied B4 validation establishes this standard for the final Core/
 
 ## 5. E2E-A — Sale
 
-**Owner:** Sales.  
+**Owner:** Sales.
 **Permanent spec home:** `woia-re-domain-contracts/evals/e2e/sale`.
 
 ### Required success path
@@ -126,7 +126,7 @@ The locally supplied B4 validation establishes this standard for the final Core/
 
 ## 6. E2E-B — Rental placement
 
-**Owner:** Leasing.  
+**Owner:** Leasing.
 **Permanent spec home:** `woia-re-domain-contracts/evals/e2e/rental`.
 
 ### Required success path
@@ -160,7 +160,7 @@ The locally supplied B4 validation establishes this standard for the final Core/
 
 ## 7. E2E-C — Property Management
 
-**Owner:** Property Management.  
+**Owner:** Property Management.
 **Permanent spec home:** `woia-re-domain-contracts/evals/e2e/property-management`.
 
 Run both:
