@@ -1,6 +1,6 @@
 ## 5. E2E-A — Sale
 
-**Owner:** Sales.  
+**Owner:** Sales.
 **Permanent spec home:** `woia-re-domain-contracts/evals/e2e/sale`.
 
 ### Required success path

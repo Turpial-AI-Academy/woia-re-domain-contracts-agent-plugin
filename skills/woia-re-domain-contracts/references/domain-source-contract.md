@@ -9,11 +9,11 @@ Historical implementation-status lines describe source chronology, not current p
 ## Authority / Finance compatible completion — 2026-10-06
 
 ADR-0029 adds one missing canonical fact discovered after B3: `ChargeAdjustment`. The current logical canonical catalog therefore contains **85** relations. A factual Charge correction and a waiver/concession/non-error economic change are distinct; neither rewrites the original accepted Charge.
-**Status:** ACCEPTED_ARCHITECTURE — B3 Domain / Data complete at pre-build contract scope.  
-**Date:** 2026-10-06.  
-**Decision:** ADR-0027.  
-**Input review HEAD:** `e79fa82d9a332924284385373f82867cff950299`.  
-**Implementation:** NOT_AUTHORIZED.  
+**Status:** ACCEPTED_ARCHITECTURE — B3 Domain / Data complete at pre-build contract scope.
+**Date:** 2026-10-06.
+**Decision:** ADR-0027.
+**Input review HEAD:** `e79fa82d9a332924284385373f82867cff950299`.
+**Implementation:** NOT_AUTHORIZED.
 **Physical DBMS/schema/migrations:** NOT_IMPLEMENTED / NOT_SELECTED.
 
 ## 1. Purpose

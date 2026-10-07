@@ -34,11 +34,11 @@ ADR-0027 and docs/22 close the concrete Domain / Data contract. Provider ownersh
 
 These are compatible action-surface completions, not new provider identities. B3 also fixes source authority, typed relationships, transaction boundaries and logical 5NF relations. Any narrower organization source/writer rule wins at runtime.
 
-**Status:** ACCEPTED_ARCHITECTURE for B2 / B2-DATA.  
-**Date:** 2026-10-06.  
-**Decision:** ADR-0026.  
-**Input:** ad78ceea5a3b74e3ee1bbbadb0112100e882d27e.  
-**Implementation:** NOT_AUTHORIZED.  
+**Status:** ACCEPTED_ARCHITECTURE for B2 / B2-DATA.
+**Date:** 2026-10-06.
+**Decision:** ADR-0026.
+**Input:** ad78ceea5a3b74e3ee1bbbadb0112100e882d27e.
+**Implementation:** NOT_AUTHORIZED.
 **Operator/business E2E:** deferred until the complete initial ecosystem candidate is published under ADR-0025.
 
 ## 1. Purpose and rules

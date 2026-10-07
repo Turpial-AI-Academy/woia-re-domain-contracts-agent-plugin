@@ -1,6 +1,6 @@
 ## 6. E2E-B — Rental placement
 
-**Owner:** Leasing.  
+**Owner:** Leasing.
 **Permanent spec home:** `woia-re-domain-contracts/evals/e2e/rental`.
 
 ### Required success path
