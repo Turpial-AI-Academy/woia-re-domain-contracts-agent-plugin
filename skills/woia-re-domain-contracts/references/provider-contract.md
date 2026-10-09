@@ -54,7 +54,7 @@ Targeted repository searches did not find admitted or existing Turpial repositor
 
 | Provider | Decision | Required v0.5.7 use | Marketplace exposure |
 |---|---|---|---|
-| `woia-core` | EXTEND_EXISTING / B4 IMPLEMENTED_CANDIDATE | Reuse current mechanics plus candidate global contracts for Due Work, autonomous delivery/activation/result/recovery, organization Project resource binding and independent base+delta selection/snapshots; release/host/store qualification remains later | all departments as dependency |
+| `woia-core` | CORE_DEPENDENCY | Core mechanics and generic contracts for Due Work, autonomous delivery/activation/result/recovery, organization Project resource binding and independent base+delta selection/snapshots; release/host/store qualification remains later | all departments as dependency |
 | `woia-chatgpt-project-bridge` | REUSE_CONDITIONAL | ChatGPT/Codex native Project-to-Project transport only where host support exists; never external human communication or universal transport | all departments when selected host supports it |
 | `woia-software` + current Software provider family | REUSE_AS_IS | existing 23-phase adaptive methodology, independent engineering/security/testing/release providers | Software |
 | `woia-marketing-strategy` | EXTEND_EXISTING consumer scope | same analytical strategy/positioning/objective/KPI contract; Ads may consume it for paid-strategy planning while retaining Ads ownership of paid decisions/effects | Marketing, Ads |
@@ -73,7 +73,7 @@ Targeted repository searches did not find admitted or existing Turpial repositor
 
 The compatible extensions below are not optional polish.
 
-- **Core:** retain the existing identity and all healthy mechanics, but B4 must deliver a compatible Core/Ecosystem evolution for the global contracts that current v0.5.7 does not prove: Due Work, autonomous receiver delivery/activation/result/recovery, organization/Project resource binding needed by Data, and independent base+delta composition/snapshot evidence. This is not a new Core plugin.
+- **Core:** supplies Due Work, typed autonomous delivery and recovery, organization/Project resource bindings and independent base/delta snapshots. Runtime qualification requires the actual host and configured provider.
 - **Marketing Strategy / Audience:** widen consumer scope to Ads. Audience also becomes source-agnostic at the contract boundary: it consumes scoped identity/customer/audience evidence references; Customer Data is one optional organization adapter, not a required dependency for every Ads/Marketing use.
 - **Sales Lead Qualification / Follow-up:** remove any mandatory dependency on Customer Data from their cross-department contract. Resolve stable identity through `woia-identity`, Opportunity/domain references through their owning provider, and Customer Data only when the organization selects it as an applicable CRM/customer source.
 - **Sales Pipeline:** use typed Opportunity/pipeline state rather than customer-record state and preserve Offer/Reservation/Lease/Sale as separate domain facts.
@@ -366,7 +366,7 @@ No department receives external-person send merely because Communications appear
 - Identity owns cross-role Person / Organization operations.
 - Data Governance owns merge/correction/source/quality/contract methodology and decisions.
 - Domain plugins own contextual relationships/facts.
-- B3 decides exact source authority and migrations.
+- The domain contract fixes exact source authority and migration rules.
 
 ### Marketing Channel Execution vs Ads vs Listing Distribution vs Communications
 - Marketing Channel Execution: Marketing public/non-person organic execution.
@@ -420,23 +420,10 @@ Before the initial ecosystem candidate can be published for the user's E2E:
 - every mandatory route must have at least one real qualified implementation/adapter;
 - generated marketplaces must expose exactly the approved consumers without authority leakage;
 - external-person send guards, payment/financial invariants, Data/identity isolation, document access and unknown-effect reconciliation must have automated/contract/security/integration gate evidence;
-- Core/Bridge/Due Work support must satisfy B4;
+- Core/Bridge/Due Work support must satisfy the configured runtime contract;
 - organization configuration can leave optional adapters/effects disabled, but advertised support cannot be mock-only.
 
 No practice business E2E is required before publication. Full operator/business E2E is executed by the user on the exact published candidate.
-
-## 11. What B2 closes and what remains
-
-
-B2-DATA is closed because Data's reusable method/resources, identity provider, domain-contract owner and deterministic enforcement owners are explicitly allocated.
-
-
-Historical remaining-items note:
-- **B4:** compatible Core/Ecosystem Due Work, autonomous transport/activation/result/recovery, Project binding and base+delta support.
-- **B5:** final repository/dependency graph and actual Ecosystem department/plugin/marketplace registry changes; target planning regeneration follows its approval.
-- **B6:** explicit build authorization after final pre-build reconciliation/audit.
-
-If B3/B4 prove that one selected provider boundary cannot preserve an accepted invariant, reopen only the affected B2 allocation with evidence. Do not casually re-fragment the entire capability graph.
 
 ## 12. Sensitive operation consumer matrix
 
@@ -466,53 +453,4 @@ Marketplace presence is never sufficient permission. The effective capability sn
 | active Lease administration/renewal/termination coordination | Property Management after accepted transfer; Legal/Finance/Operations retain their distinct outcomes | Leasing does not silently remain administrator |
 | MaintenanceCase outcome mutation | Property Management; Vendor/Operations/Finance contribute their own results | no contributor closes another owner's result |
 
-If B3 resolves a narrower writer/source rule, the narrower rule wins. Any proposed broader executor must reopen the affected B2 row rather than relying on marketplace access.
-
-## 13. Reconciliation of the historical forty-operation matrix
-
-Every historical operation is explicitly mapped or superseded; none is silently dropped.
-
-| Historical operation | Current provider / treatment | Disposition |
-|---|---|---|
-| `party.identity` | woia-identity | REPLACED_BY_CURRENT_IDENTITY_CONTRACT |
-| `opportunity.lifecycle` | woia-sales-pipeline (extended typed Opportunity contract) | EXTEND_EXISTING |
-| `communication.receive` | woia-communications / communication.external.receive | NEW_REQUIRED |
-| `communication.send` | woia-communications / external.send or internal.send | NEW_REQUIRED; external Customer Service-only |
-| `calendar.schedule` | woia-scheduling | NEW_REQUIRED |
-| `document.artifacts` | woia-documents | NEW_REQUIRED |
-| `document.generate` | woia-documents | NEW_REQUIRED |
-| `document.extract` | woia-documents | NEW_REQUIRED |
-| `signature.execute` | woia-documents signature actions | NEW_REQUIRED; legal validity separate |
-| `finance.obligations` | woia-financial-ledger | NEW_REQUIRED |
-| `finance.journal-allocation` | woia-financial-ledger | NEW_REQUIRED |
-| `payment.observe-reconcile` | woia-payments | NEW_REQUIRED |
-| `payment.execute` | woia-payments | NEW_REQUIRED but organization/authority gated |
-| `compliance.review` | woia-compliance | NEW_REQUIRED |
-| `knowledge.manage` | woia-organization-knowledge | NEW_REQUIRED |
-| `analytics.query` | department-owned analytics/read views; Marketing Analytics + Ads Platforms + domain/Finance providers | SUPERSEDED_SPLIT; no universal analytics master |
-| `workforce.manage` | woia-workforce | NEW_REQUIRED |
-| `procurement.manage` | woia-vendor-management | SUPERSEDED_RENAMED_SEMANTICS |
-| `runtime.operate` | woia-core (EXTEND_EXISTING under B4) + woia-technology-operations; Project Bridge when host-qualified | SPLIT_BY_OWNER / GLOBAL_PREREQUISITE |
-| `content.plan-write` | woia-marketing-content-copy | REUSE/EXTEND consumer scope |
-| `creative.generate` | woia-marketing-creative + selected generator (optional ComfyUI) | REUSE/OPTIONAL |
-| `meta-ads.manage` | woia-ads-platforms | NEW_REQUIRED; Meta initial mandatory adapter |
-| `google-ads.manage` | woia-ads-platforms | NEW_REQUIRED; adapter only if advertised/qualified |
-| `property.inventory` | woia-re-property-data | NEW_REQUIRED |
-| `mandate.manage` | woia-re-property-data | NEW_REQUIRED |
-| `listing.lifecycle` | woia-re-property-data | NEW_REQUIRED |
-| `property.match` | woia-re-property-matching | NEW_REQUIRED |
-| `listing.distribute` | woia-re-listing-distribution | NEW_REQUIRED |
-| `transaction.reservation` | woia-re-transactions | NEW_REQUIRED |
-| `sale.negotiate-close` | woia-re-transactions | NEW_REQUIRED; human negotiation/Offers preserved |
-| `rental.application` | woia-re-rental-application | NEW_REQUIRED |
-| `lease.lifecycle` | woia-re-lease-administration | NEW_REQUIRED |
-| `lease.obligations-adjustment` | woia-re-lease-administration evaluation + woia-financial-ledger effect | SPLIT_BY_OWNER |
-| `settlement.issue` | woia-re-owner-settlement import/track/reconcile; external system remains formal calculator | NARROWED_CURRENT_SCOPE |
-| `maintenance.resolve` | woia-re-maintenance + Vendor/Operations/Finance contributions | NEW_REQUIRED/SPLIT_BY_OWNER |
-| `marketing.strategy` | woia-marketing-strategy | EXTEND_EXISTING consumer scope (Marketing + Ads) |
-| `marketing.audience` | woia-marketing-audience | EXTEND_EXISTING consumer/input scope (Marketing + Ads) |
-| `sales.lead-qualification` | woia-sales-lead-qualification | EXTEND_EXISTING |
-| `sales.follow-up` | woia-sales-follow-up plan/draft + woia-communications external effect via Customer Service | EXTEND/SPLIT_BY_OWNER |
-| `sales.pipeline` | woia-sales-pipeline | EXTEND_EXISTING |
-
-Additional current requirements that did not exist as rows in that matrix are also covered: Property Services → `woia-re-property-services`; Data governance/5FN/source/migration → `woia-data-governance` + `woia-re-domain-contracts`; cross-role identity → `woia-identity`; People continuous guidance → `woia-workforce` + `woia-organization-knowledge`; Technology access/backup/recovery → `woia-technology-operations`; and exclusive external-person dispatch/internal-staff messaging → `woia-communications`.
+If the domain contract resolves a narrower writer/source rule, the narrower rule wins. Any proposed broader executor must reopen the affected provider allocation rather than relying on marketplace access.

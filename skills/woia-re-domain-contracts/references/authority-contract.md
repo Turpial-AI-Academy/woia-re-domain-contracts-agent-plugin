@@ -122,7 +122,7 @@ Each outward communication has its own recipient/purpose/content/channel guard.
 | maintenance payable/cost consequence | Finance | policy or APPROVAL_REQUIRED by exact cost/ceiling | repair completion ≠ liability/payment |
 | commission Charge/payment | Finance | source/policy/approval as applicable | won pipeline is not source proof of commission/payment |
 
-## 8. ChargeAdjustment — B2/B3 compatible completion
+## 8. ChargeAdjustment
 
 ### Semantic fact
 
@@ -222,14 +222,14 @@ A batch approval cannot authorize future members of a query.
 
 ## 13. Persistence without a new Authority plugin
 
-Authority control data is separated from B3 canonical business facts:
+Authority control data is separated from canonical business facts:
 
 - Core's AuthorityContext/Effect records carry Task/runtime grant/effect identity;
 - organization configuration holds current policies/delegations/limits/approval resources;
 - providers persist their domain financial/business facts;
 - approval/evidence references are linked into Effect/domain records.
 
-Therefore Authority/Finance reconciliation creates **no new plugin/repository identity** before B5.
+Therefore Authority/Finance reconciliation creates **no new plugin/repository identity**.
 
 ## 14. Required qualification cases
 
@@ -271,4 +271,4 @@ All remain NOT_RUN until implemented on the exact candidate.
 
 Authority / Finance is **CLOSED_PRE_B5_CONTRACT**.
 
-No organization-specific authority value is invented. The next pre-B5 gate is E2E / Definition of Done design.
+No organization-specific authority value is invented. Operational qualification belongs to the actual configured host and providers.

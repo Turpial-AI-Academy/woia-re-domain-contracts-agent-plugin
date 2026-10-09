@@ -39,7 +39,7 @@ All relations below are logically scoped by `org_id`. An implementation may omit
 
 ### Candidate-key rule
 
-The candidate keys listed below are **logical minimum contracts**. B3 closes their meaning; Software may introduce surrogate PKs, but must also enforce the listed candidate uniqueness and foreign-key/domain rules.
+The candidate keys listed below are **logical minimum contracts**. This contract fixes their meaning; Software may introduce surrogate PKs, but must also enforce the listed candidate uniqueness and foreign-key/domain rules.
 
 ## 3. Canonical relation catalog
 
@@ -142,7 +142,7 @@ The catalog is **ACCEPTED_LOGICAL_5NF_CONTRACT** because:
 - historical/version relations use the root+version fact as their key;
 - source observations, accepted facts and derived/extracted values are separate.
 
-This is not a claim that an unbuilt SQL schema already passes 5NF. The future Software design must instantiate exact columns/domains and complete the docs/19 relation review sheet. Any new actual dependency discovered at that stage must either produce a lossless decomposition or reopen the affected B3 relation contract with evidence.
+This is not a claim that an unbuilt SQL schema already passes 5NF. The future Software design must instantiate exact columns/domains and prove the relation dependencies and normalization. Any new actual dependency discovered at that stage must either produce a lossless decomposition or reopen the affected relation contract with evidence.
 
 ## 4. Source Authority Map — default fact-family contract
 
@@ -438,7 +438,7 @@ No unlimited bidirectional last-write-wins synchronization is supported.
 - Historical/current authorization are separate: a historical document may remain readable only under current permitted access.
 - Restore re-evaluates current revocations/holds before dispatch resumes.
 
-Physical RLS/schema-per-tenant/database-per-tenant choice remains Technology/Software implementation after B4/B5; it must satisfy this logical contract.
+Physical RLS/schema-per-tenant/database-per-tenant choice remains Technology/Software implementation; it must satisfy this logical contract.
 
 ## 13. Domain transition preconditions
 
@@ -459,9 +459,9 @@ The following minimum transitions are fixed:
 | settlement delivery | accepted exact external settlement source version + approved delivery package; Customer Service sends |
 | payout | eligible/reconciled funds + exact beneficiary/custody/holds + independent payment authority; settlement delivery is irrelevant to payment confirmation |
 
-B3 does not invent optional prerequisites beyond the organization/legal contract; where a row says “if required”, the applicable configured rule supplies the condition.
+This contract does not invent optional prerequisites beyond the organization/legal contract; where a row says “if required”, the applicable configured rule supplies the condition.
 
-## 14. B2 action-surface completions discovered by B3
+## 14. Required action surfaces
 
 Provider ownership does not change. The following actions are added to the accepted action contracts:
 
@@ -473,26 +473,8 @@ Provider ownership does not change. The following actions are added to the accep
 | `woia-re-property-services` | `property-service.responsibility.record` | version/effectively date accepted responsibility separate from account |
 | `woia-re-owner-settlement` | `owner-settlement.source-version.accept` | Finance acceptance of exact external formal settlement version without internal calculation/issue |
 
-The pre-B3 B2 audit explicitly allowed reopening only the affected action surface when B3 exposed a concrete contradiction. These additions are such compatible completions; they create no new plugin identity or new business power.
 
-## 15. B3 closure of prior open questions
-
-| Prior question | B3 disposition |
-|---|---|
-| exact Property Services account/observation model | CLOSED — ServiceAccount, Responsibility, Cycle, Observation, Dispute contract |
-| owner-responsible service debt | CLOSED — internal Property Management resolution; no tenant contact/fee; Finance only for accepted consequence |
-| file capability ownership | CLOSED by B2 + B3 — `woia-documents`, typed links and logical placement contract |
-| logical Property file taxonomy | CLOSED — typed links are truth; logical namespace/path is configurable projection |
-| service adapters | CONTRACT CLOSED — adapter must emit the PropertyServiceObservation source contract; actual organization/provider implementations remain rollout/build selection |
-| collection fee | CONTRACT CLOSED — required deterministic versioned policy; no policy/value means no Charge |
-| Payment/Allocation source authority | CLOSED — PaymentObservation/payment.accept + Finance Allocation contract |
-| external settlement system | CONTRACT CLOSED — organization binds the concrete system/account; semantic authority remains external formal calculator |
-| canonical 5NF relation design | CLOSED at logical contract level — catalog above; physical schema must instantiate/prove exact columns/dependencies |
-| migration/cutover | CLOSED — one-writer versioned cutover protocol above |
-| identity/recipient-purpose | CLOSED — shared identity + contextual workforce/purpose resolution above |
-| transaction boundaries | CLOSED — local atomic boundaries and external failure seams above |
-
-## 16. Inputs that remain organization configuration, not B3 blockers
+## 16. Organization configuration inputs
 
 The following may be absent from the generic product until an organization is onboarded. Absence blocks only the affected operation:
 - actual CRM/PMS/admin-system identifiers and accounts;
@@ -507,13 +489,3 @@ The following may be absent from the generic product until an organization is on
 - staff identities, roles, backup coverage and authority grants.
 
 The product must provide validated configuration contracts for them; it must never invent defaults that create money, authority, legal applicability or external effects.
-
-## 17. Remaining pre-build sequence
-
-- **B4:** Core/Ecosystem global/runtime prerequisites.
-- **B5:** final repository/marketplace/dependency graph and then authorized machine-planning regeneration.
-- **B6:** final pre-build audit + explicit implementation authorization.
-
-Operating/collaboration, Authority/Finance and E2E/DoD documents still require final reconciliation against this B3 contract before B5/B6, but they are no longer unresolved Domain/Data semantics.
-
-No implementation or business/operator E2E is executed by this document.
