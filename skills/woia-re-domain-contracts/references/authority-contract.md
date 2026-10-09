@@ -1,13 +1,10 @@
 # Versioned source contract
 
-Source: Turpial-AI-Academy/woia-real-estate @ eb0a7278188b2f9968e21ed4299f08184d864cac / docs/24-authority-finance-final-contract.md
 
 Historical implementation-status lines describe source chronology, not current provider validation.
 
 # 24 — Authority / Finance Final Contract
 
-**Status:** ACCEPTED_PRE_B5_CONTRACT
-**Decision:** ADR-0029
 **Date:** 2026-10-06
 **Implementation:** NOT_AUTHORIZED
 

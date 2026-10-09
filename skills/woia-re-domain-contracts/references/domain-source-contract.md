@@ -1,6 +1,5 @@
 # Versioned source contract
 
-Source: Turpial-AI-Academy/woia-real-estate @ eb0a7278188b2f9968e21ed4299f08184d864cac / docs/22-canonical-domain-data-contract.md
 
 Historical implementation-status lines describe source chronology, not current provider validation.
 
@@ -9,9 +8,7 @@ Historical implementation-status lines describe source chronology, not current p
 ## Authority / Finance compatible completion — 2026-10-06
 
 ADR-0029 adds one missing canonical fact discovered after B3: `ChargeAdjustment`. The current logical canonical catalog therefore contains **85** relations. A factual Charge correction and a waiver/concession/non-error economic change are distinct; neither rewrites the original accepted Charge.
-**Status:** ACCEPTED_ARCHITECTURE — B3 Domain / Data complete at pre-build contract scope.
 **Date:** 2026-10-06.
-**Decision:** ADR-0027.
 **Input review HEAD:** `e79fa82d9a332924284385373f82867cff950299`.
 **Implementation:** NOT_AUTHORIZED.
 **Physical DBMS/schema/migrations:** NOT_IMPLEMENTED / NOT_SELECTED.
@@ -524,7 +521,6 @@ The product must provide validated configuration contracts for them; it must nev
 
 ## 17. Remaining pre-build sequence
 
-B3 is closed by ADR-0027/docs22. Remaining canonical blockers:
 - **B4:** Core/Ecosystem global/runtime prerequisites.
 - **B5:** final repository/marketplace/dependency graph and then authorized machine-planning regeneration.
 - **B6:** final pre-build audit + explicit implementation authorization.

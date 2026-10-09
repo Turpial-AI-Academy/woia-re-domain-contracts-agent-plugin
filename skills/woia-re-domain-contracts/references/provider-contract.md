@@ -1,6 +1,5 @@
 # Versioned source contract
 
-Source: Turpial-AI-Academy/woia-real-estate @ eb0a7278188b2f9968e21ed4299f08184d864cac / docs/21-capability-provider-map.md
 
 Historical implementation-status lines describe source chronology, not current provider validation.
 
@@ -8,15 +7,13 @@ Historical implementation-status lines describe source chronology, not current p
 
 ## B5 final graph projection — 2026-10-06
 
-ADR-0031 and docs/26 instantiate this provider map into exact repository and marketplace identities. The machine graph is planning/b5-repository-graph.json.
 
 B5 does not alter semantic ownership. It concretizes target department eligibility, including compatible consumer-scope releases where an existing manifest currently names fewer departments. The final graph has 79 plugin identities and 16 marketplace views. `woia-vendor-coordination` is the Vendor Management root; `woia-vendor-management` remains the capability provider. No Authority/E2E plugin is added.
 
 ## Authority / Finance completion — 2026-10-06
 
-ADR-0029 and docs/24 add one compatible Finance action without changing provider ownership: `woia-financial-ledger.finance.charge.adjust`. It represents an authorized non-error waiver/concession/adjustment and preserves the original Charge.
+The compatible Finance action preserves provider ownership: `woia-financial-ledger.finance.charge.adjust`. It represents an authorized non-error waiver/concession/adjustment and preserves the original Charge.
 
-ADR-0030 selects `woia-re-domain-contracts` as the permanent storage/evaluation home for Real Estate cross-domain E2E specifications, synthetic public fixtures and assertion schemas. Sales, Leasing and Property Management retain business accountability; this creates no new qualification plugin.
 ## B4 Core disposition update — 2026-10-06
 
 The `woia-core` B2 disposition `EXTEND_EXISTING / GLOBAL_PREREQUISITE` is now backed by the exact Core candidate `fecd47ac19b882b2675dd57e138532127ec56969` and Ecosystem candidate `9b228e839d0a6831454dc5be2a29fea7bf5c7c1b`.
@@ -25,7 +22,7 @@ This closes the missing global contract/implementation prerequisite; it does not
 
 ## B3 action-contract completion — 2026-10-06
 
-ADR-0027 and docs/22 close the concrete Domain / Data contract. Provider ownership remains ADR-0026/docs21; B3 adds four actions required by the exact source/transaction semantics:
+The Domain / Data contract includes four actions required by the exact source/transaction semantics:
 
 - `woia-payments.payment.accept`;
 - `woia-financial-ledger.finance.opening-position.record`;
@@ -34,12 +31,10 @@ ADR-0027 and docs/22 close the concrete Domain / Data contract. Provider ownersh
 
 These are compatible action-surface completions, not new provider identities. B3 also fixes source authority, typed relationships, transaction boundaries and logical 5NF relations. Any narrower organization source/writer rule wins at runtime.
 
-**Status:** ACCEPTED_ARCHITECTURE for B2 / B2-DATA.
 **Date:** 2026-10-06.
-**Decision:** ADR-0026.
 **Input:** ad78ceea5a3b74e3ee1bbbadb0112100e882d27e.
 **Implementation:** NOT_AUTHORIZED.
-**Operator/business E2E:** deferred until the complete initial ecosystem candidate is published under ADR-0025.
+**Operator/business E2E:** deferred until the complete initial ecosystem candidate is published.
 
 ## 1. Purpose and rules
 
@@ -75,7 +70,7 @@ The actual selected contracts inspected for this review establish:
 - `customer-data`: `customer.search`, `customer.read`, `customer.update`; organization binding or local JSON reference. It has no advertised create/delete/merge/general relational/financial contract.
 - `woia.project-message.send`: ChatGPT Project Bridge transport over a native host capability; BRIDGE_UNAVAILABLE if the host cannot supply it.
 - `comfyui-local`: optional shared local generation/editing engine; tool availability depends on actual local ComfyUI nodes/models.
-- Software: existing `woia-software` root and its admitted provider family remain governed by ADR-0023.
+- Software: existing `woia-software` root and its admitted provider family remain governed by the Software methodology contract.
 
 Targeted repository searches did not find admitted or existing Turpial repositories under the old proposed names for communications, scheduling, documents, ledger/payments, compliance, organization knowledge, workforce/procurement, Ads/Data/Technology or the previous Real Estate provider candidates. Therefore those semantic gaps are not mislabeled as reuse.
 
@@ -95,7 +90,7 @@ Targeted repository searches did not find admitted or existing Turpial repositor
 |---|---|---|---|
 | `woia-core` | EXTEND_EXISTING / B4 IMPLEMENTED_CANDIDATE | Reuse current mechanics plus candidate global contracts for Due Work, autonomous delivery/activation/result/recovery, organization Project resource binding and independent base+delta selection/snapshots; release/host/store qualification remains later | all departments as dependency |
 | `woia-chatgpt-project-bridge` | REUSE_CONDITIONAL | ChatGPT/Codex native Project-to-Project transport only where host support exists; never external human communication or universal transport | all departments when selected host supports it |
-| `woia-software` + current Software provider family | REUSE_AS_IS under ADR-0023 | existing 23-phase adaptive methodology, independent engineering/security/testing/release providers | Software |
+| `woia-software` + current Software provider family | REUSE_AS_IS | existing 23-phase adaptive methodology, independent engineering/security/testing/release providers | Software |
 | `woia-marketing-strategy` | EXTEND_EXISTING consumer scope | same analytical strategy/positioning/objective/KPI contract; Ads may consume it for paid-strategy planning while retaining Ads ownership of paid decisions/effects | Marketing, Ads |
 | `woia-marketing-audience` | EXTEND_EXISTING consumer/input scope | same audience research/segmentation discipline; extend to Ads and resolve identity/customer evidence through approved source refs rather than a mandatory Customer Data dependency | Marketing, Ads |
 | `woia-marketing-content-copy` | EXTEND_EXISTING consumer scope | same draft/review contract; also usable by Ads for ad-specific copy variants without transferring Marketing outcome ownership | Marketing, Ads |
@@ -462,15 +457,13 @@ Before the initial ecosystem candidate can be published for the user's E2E:
 - Core/Bridge/Due Work support must satisfy B4;
 - organization configuration can leave optional adapters/effects disabled, but advertised support cannot be mock-only.
 
-No practice business E2E is required before publication. Full operator/business E2E is executed by the user on the exact published candidate under ADR-0025.
+No practice business E2E is required before publication. Full operator/business E2E is executed by the user on the exact published candidate.
 
 ## 11. What B2 closes and what remains
 
-B2 is closed because provider ownership, reuse/extension/new disposition, action surface, consumers, effect boundaries and marketplace eligibility are now decided.
 
 B2-DATA is closed because Data's reusable method/resources, identity provider, domain-contract owner and deterministic enforcement owners are explicitly allocated.
 
-B4 is closed by ADR-0028/docs23. B5 repository/marketplace projection is fixed by ADR-0031/docs26. Remaining implementation/release work is build-gated by B6.
 
 Historical remaining-items note:
 - **B4:** compatible Core/Ecosystem Due Work, autonomous transport/activation/result/recovery, Project binding and base+delta support.
