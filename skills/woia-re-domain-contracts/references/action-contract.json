@@ -1,7 +1,7 @@
 {
   "schema": "dev.woia.action-contract/v1",
   "plugin": "woia-re-domain-contracts",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "actions": [
     "real-estate.contract.resolve",
     "real-estate.contract.validate"
