@@ -1,14 +1,13 @@
 {
   "schema": "dev.woia.real-estate.logical-relations/v1",
   "version": "0.5.7",
-  "source_commit": "eb0a7278188b2f9968e21ed4299f08184d864cac",
   "org_scope": "org_id required or deterministically enforced by key",
   "physical_dbms": null,
   "runtime_enforcement": false,
   "relations": [
     {
       "name": "Subject",
-      "fact_grain": "Una Person/Organization estable dentro de una organización",
+      "fact_grain": "Una Person/Organization estable dentro de una organizaci\u00f3n",
       "candidate_keys": "(org_id, subject_id)",
       "semantic_owner": "Identity",
       "dependency_note": "subject_kind depende de la clave; sin conjuntos independientes."
@@ -18,11 +17,11 @@
       "fact_grain": "Un identificador externo atribuido a un Subject",
       "candidate_keys": "(org_id, namespace_id, object_type, external_id, lifecycle_scope)",
       "semantic_owner": "Identity/Data",
-      "dependency_note": "Mantener la asociación completa; el mismo Subject puede tener múltiples refs."
+      "dependency_note": "Mantener la asociaci\u00f3n completa; el mismo Subject puede tener m\u00faltiples refs."
     },
     {
       "name": "SubjectAlias",
-      "fact_grain": "Una identidad/alias resuelta hacia un Subject canónico desde una fecha",
+      "fact_grain": "Una identidad/alias resuelta hacia un Subject can\u00f3nico desde una fecha",
       "candidate_keys": "(org_id, alias_subject_id, effective_from)",
       "semantic_owner": "Identity/Data",
       "dependency_note": "No reescribe historia; alias y canon son un hecho dirigido."
@@ -30,16 +29,16 @@
     {
       "name": "ContactPoint",
       "fact_grain": "Un endpoint de contacto normalizado y su valor original",
-      "candidate_keys": "(org_id, contact_point_id); alt según canal+namespace+normalized_value cuando el contrato lo garantice",
+      "candidate_keys": "(org_id, contact_point_id); alt seg\u00fan canal+namespace+normalized_value cuando el contrato lo garantice",
       "semantic_owner": "Identity",
-      "dependency_note": "La verificación/uso no se infiere de igualdad textual."
+      "dependency_note": "La verificaci\u00f3n/uso no se infiere de igualdad textual."
     },
     {
       "name": "SubjectContactPoint",
-      "fact_grain": "Un Subject puede usar un ContactPoint para un propósito efectivo",
+      "fact_grain": "Un Subject puede usar un ContactPoint para un prop\u00f3sito efectivo",
       "candidate_keys": "(org_id, subject_id, contact_point_id, purpose_code, effective_from)",
       "semantic_owner": "Identity",
-      "dependency_note": "Relación completa; propósito y contacto no se separan por asumir independencia."
+      "dependency_note": "Relaci\u00f3n completa; prop\u00f3sito y contacto no se separan por asumir independencia."
     },
     {
       "name": "Property",
@@ -50,42 +49,42 @@
     },
     {
       "name": "PropertyContainment",
-      "fact_grain": "Un Property contiene físicamente a otro durante un intervalo",
+      "fact_grain": "Un Property contiene f\u00edsicamente a otro durante un intervalo",
       "candidate_keys": "(org_id, parent_property_id, child_property_id, effective_from)",
       "semantic_owner": "RE Property Data",
-      "dependency_note": "La relación completa preserva alcance/fecha; se exige aciclicidad."
+      "dependency_note": "La relaci\u00f3n completa preserva alcance/fecha; se exige aciclicidad."
     },
     {
       "name": "PropertyRightClaim",
       "fact_grain": "Un Subject afirma/ostenta un tipo de derecho sobre un Property en un alcance temporal, con evidencia",
       "candidate_keys": "(org_id, property_id, subject_id, right_type, effective_from, source_ref)",
       "semantic_owner": "Property Acquisition + Legal donde aplique",
-      "dependency_note": "No descomponer Subject–Property y Property–Right: produciría derechos espurios."
+      "dependency_note": "No descomponer Subject\u2013Property y Property\u2013Right: producir\u00eda derechos espurios."
     },
     {
       "name": "Mandate",
-      "fact_grain": "Una relación de servicio inmobiliario identificada",
+      "fact_grain": "Una relaci\u00f3n de servicio inmobiliario identificada",
       "candidate_keys": "(org_id, mandate_id)",
       "semantic_owner": "RE Property Data / Property Acquisition",
-      "dependency_note": "Identidad estable; versiones contienen términos efectivos."
+      "dependency_note": "Identidad estable; versiones contienen t\u00e9rminos efectivos."
     },
     {
       "name": "MandateVersion",
-      "fact_grain": "Una versión efectiva de un Mandate",
+      "fact_grain": "Una versi\u00f3n efectiva de un Mandate",
       "candidate_keys": "(org_id, mandate_id, version_no)",
       "semantic_owner": "RE Property Data / Property Acquisition",
-      "dependency_note": "Todos los términos de esa versión dependen de mandate+version."
+      "dependency_note": "Todos los t\u00e9rminos de esa versi\u00f3n dependen de mandate+version."
     },
     {
       "name": "MandateAuthorityScope",
-      "fact_grain": "Un poder concreto de una versión de Mandate para un Property/alcance y representado concreto",
+      "fact_grain": "Un poder concreto de una versi\u00f3n de Mandate para un Property/alcance y representado concreto",
       "candidate_keys": "(org_id, mandate_id, version_no, property_id, power_code, represented_subject_id, scope_code)",
       "semantic_owner": "Property Acquisition + competent owner",
-      "dependency_note": "Relación n-aria conservada; no se autoriza join de pares salvo regla futura explícita."
+      "dependency_note": "Relaci\u00f3n n-aria conservada; no se autoriza join de pares salvo regla futura expl\u00edcita."
     },
     {
       "name": "MandateParticipant",
-      "fact_grain": "Un Subject participa en una versión de Mandate con un rol",
+      "fact_grain": "Un Subject participa en una versi\u00f3n de Mandate con un rol",
       "candidate_keys": "(org_id, mandate_id, version_no, subject_id, participant_role)",
       "semantic_owner": "RE Property Data",
       "dependency_note": "Rol contextual; no pertenece a Identity."
@@ -99,10 +98,10 @@
     },
     {
       "name": "ListingVersion",
-      "fact_grain": "Una versión aprobada de términos/contenido de Listing",
+      "fact_grain": "Una versi\u00f3n aprobada de t\u00e9rminos/contenido de Listing",
       "candidate_keys": "(org_id, listing_id, version_no)",
       "semantic_owner": "RE Property Data / Property Acquisition",
-      "dependency_note": "Precio/términos/contexto pertenecen a esta versión."
+      "dependency_note": "Precio/t\u00e9rminos/contexto pertenecen a esta versi\u00f3n."
     },
     {
       "name": "ListingPropertyScope",
@@ -113,17 +112,17 @@
     },
     {
       "name": "ChannelPublication",
-      "fact_grain": "Una representación remota identificada de una ListingVersion",
+      "fact_grain": "Una representaci\u00f3n remota identificada de una ListingVersion",
       "candidate_keys": "(org_id, publication_id); alt (org_id, channel_account_ref, remote_object_id, lifecycle_scope)",
       "semantic_owner": "RE Listing Distribution / Marketing",
       "dependency_note": "Desired local state y remote observed state siguen separados."
     },
     {
       "name": "ChannelPublicationObservation",
-      "fact_grain": "Una observación versionada del objeto remoto",
+      "fact_grain": "Una observaci\u00f3n versionada del objeto remoto",
       "candidate_keys": "(org_id, publication_id, source_revision_or_observation_id)",
       "semantic_owner": "RE Listing Distribution",
-      "dependency_note": "Múltiples observaciones independientes de la intención local."
+      "dependency_note": "M\u00faltiples observaciones independientes de la intenci\u00f3n local."
     },
     {
       "name": "Opportunity",
@@ -136,19 +135,19 @@
       "name": "OpportunityParticipant",
       "fact_grain": "Un Subject participa en Opportunity con rol",
       "candidate_keys": "(org_id, opportunity_id, subject_id, participant_role)",
-      "semantic_owner": "Sales/Leasing/Acquisition según intent",
-      "dependency_note": "Relación contextual."
+      "semantic_owner": "Sales/Leasing/Acquisition seg\u00fan intent",
+      "dependency_note": "Relaci\u00f3n contextual."
     },
     {
       "name": "OpportunityPropertyInterest",
-      "fact_grain": "Un Opportunity tiene interés en un Property con un tipo/alcance",
+      "fact_grain": "Un Opportunity tiene inter\u00e9s en un Property con un tipo/alcance",
       "candidate_keys": "(org_id, opportunity_id, property_id, interest_role)",
       "semantic_owner": "Sales/Leasing",
-      "dependency_note": "Puede haber cero o varios; no fabricar Property específico."
+      "dependency_note": "Puede haber cero o varios; no fabricar Property espec\u00edfico."
     },
     {
       "name": "Negotiation",
-      "fact_grain": "Un contexto de negociación identificado",
+      "fact_grain": "Un contexto de negociaci\u00f3n identificado",
       "candidate_keys": "(org_id, negotiation_id)",
       "semantic_owner": "RE Transactions / Sales",
       "dependency_note": "Human-led; el registro no concede poder de negociar."
@@ -162,7 +161,7 @@
     },
     {
       "name": "NegotiationPropertyScope",
-      "fact_grain": "Un Property integra la negociación con un rol de alcance",
+      "fact_grain": "Un Property integra la negociaci\u00f3n con un rol de alcance",
       "candidate_keys": "(org_id, negotiation_id, property_id, scope_role)",
       "semantic_owner": "RE Transactions",
       "dependency_note": "Permite apartment/garage separados sin join espurio."
@@ -179,7 +178,7 @@
       "fact_grain": "Una Offer se relaciona con otra como counter/supersedes/responds-to",
       "candidate_keys": "(org_id, from_offer_id, to_offer_id, relation_type)",
       "semantic_owner": "RE Transactions",
-      "dependency_note": "Relación dirigida completa."
+      "dependency_note": "Relaci\u00f3n dirigida completa."
     },
     {
       "name": "Reservation",
@@ -190,14 +189,14 @@
     },
     {
       "name": "ReservationCondition",
-      "fact_grain": "Una condición identificada de Reservation",
+      "fact_grain": "Una condici\u00f3n identificada de Reservation",
       "candidate_keys": "(org_id, reservation_id, condition_id)",
       "semantic_owner": "RE Transactions",
       "dependency_note": "Condiciones independientes en filas separadas; cumplimiento/evidencia no mezclados."
     },
     {
       "name": "SaleTransaction",
-      "fact_grain": "La ejecución de un compromiso de venta aceptado",
+      "fact_grain": "La ejecuci\u00f3n de un compromiso de venta aceptado",
       "candidate_keys": "(org_id, sale_transaction_id)",
       "semantic_owner": "RE Transactions / Sales",
       "dependency_note": "Opportunity won no determina cierre."
@@ -207,14 +206,14 @@
       "fact_grain": "Un hito de SaleTransaction con estado/evidencia",
       "candidate_keys": "(org_id, sale_transaction_id, milestone_code, occurrence_id)",
       "semantic_owner": "RE Transactions + competent contributor",
-      "dependency_note": "Firma/cierre/dinero/posesión son hechos distintos."
+      "dependency_note": "Firma/cierre/dinero/posesi\u00f3n son hechos distintos."
     },
     {
       "name": "RentalApplication",
       "fact_grain": "Una solicitud de alquiler identificada para un contexto/property/terms",
       "candidate_keys": "(org_id, application_id)",
       "semantic_owner": "RE Rental Application / Leasing",
-      "dependency_note": "Una Application no es aceptación."
+      "dependency_note": "Una Application no es aceptaci\u00f3n."
     },
     {
       "name": "ApplicationParticipant",
@@ -225,17 +224,17 @@
     },
     {
       "name": "ApplicationEvidenceLink",
-      "fact_grain": "Una versión documental soporta a un participante/propósito concreto dentro de Application",
+      "fact_grain": "Una versi\u00f3n documental soporta a un participante/prop\u00f3sito concreto dentro de Application",
       "candidate_keys": "(org_id, application_id, subject_id, document_id, document_version_id, evidence_purpose)",
       "semantic_owner": "RE Rental Application + Documents",
       "dependency_note": "N-aria para impedir que un documento de un garante se atribuya a otro."
     },
     {
       "name": "Guarantee",
-      "fact_grain": "Una garantía propuesta/aceptada identificada",
+      "fact_grain": "Una garant\u00eda propuesta/aceptada identificada",
       "candidate_keys": "(org_id, guarantee_id)",
       "semantic_owner": "RE Rental Application / Leasing",
-      "dependency_note": "Garantía != rol de garante."
+      "dependency_note": "Garant\u00eda != rol de garante."
     },
     {
       "name": "GuaranteeParticipant",
@@ -246,7 +245,7 @@
     },
     {
       "name": "GuaranteeCoverage",
-      "fact_grain": "Una Guarantee cubre una obligación/property/alcance concreto bajo términos concretos",
+      "fact_grain": "Una Guarantee cubre una obligaci\u00f3n/property/alcance concreto bajo t\u00e9rminos concretos",
       "candidate_keys": "(org_id, guarantee_id, property_id, obligation_scope_code, coverage_scope_id)",
       "semantic_owner": "RE Rental Application + competent decision",
       "dependency_note": "N-aria; prohibido descomponer en pares salvo regla de suficiencia demostrada."
@@ -256,14 +255,14 @@
       "fact_grain": "Un contrato de alquiler identificado",
       "candidate_keys": "(org_id, lease_id)",
       "semantic_owner": "RE Lease Administration / Leasing then Property Management",
-      "dependency_note": "Identidad estable; versiones contienen términos."
+      "dependency_note": "Identidad estable; versiones contienen t\u00e9rminos."
     },
     {
       "name": "LeaseVersion",
-      "fact_grain": "Una versión efectiva del Lease",
+      "fact_grain": "Una versi\u00f3n efectiva del Lease",
       "candidate_keys": "(org_id, lease_id, version_no)",
       "semantic_owner": "RE Lease Administration",
-      "dependency_note": "Términos dependen de lease+version."
+      "dependency_note": "T\u00e9rminos dependen de lease+version."
     },
     {
       "name": "LeaseParticipant",
@@ -277,7 +276,7 @@
       "fact_grain": "Un Property forma parte de LeaseVersion con rol/alcance",
       "candidate_keys": "(org_id, lease_id, version_no, property_id, scope_role)",
       "semantic_owner": "RE Lease Administration",
-      "dependency_note": "Permite múltiples Properties."
+      "dependency_note": "Permite m\u00faltiples Properties."
     },
     {
       "name": "LeaseGuarantee",
@@ -288,52 +287,52 @@
     },
     {
       "name": "LeaseObligationRule",
-      "fact_grain": "Una regla versionada genera obligaciones por concepto/período",
+      "fact_grain": "Una regla versionada genera obligaciones por concepto/per\u00edodo",
       "candidate_keys": "(org_id, lease_id, lease_version_no, rule_id)",
       "semantic_owner": "RE Lease Administration + Finance semantics",
       "dependency_note": "Cada regla tiene identidad; Charge dedupe usa rule+period+concept."
     },
     {
       "name": "LeaseOccupancyFact",
-      "fact_grain": "Una ocupación/posesión atribuible de Property bajo Lease",
+      "fact_grain": "Una ocupaci\u00f3n/posesi\u00f3n atribuible de Property bajo Lease",
       "candidate_keys": "(org_id, lease_id, property_id, subject_id, effective_from, occupancy_kind)",
       "semantic_owner": "RE Lease Administration / Operations evidence",
-      "dependency_note": "Contract end no infiere fin de ocupación."
+      "dependency_note": "Contract end no infiere fin de ocupaci\u00f3n."
     },
     {
       "name": "Handover",
-      "fact_grain": "Una entrega/devolución física identificada",
+      "fact_grain": "Una entrega/devoluci\u00f3n f\u00edsica identificada",
       "candidate_keys": "(org_id, handover_id)",
       "semantic_owner": "RE Lease Administration + Operations",
-      "dependency_note": "Firma/dinero/posesión permanecen independientes."
+      "dependency_note": "Firma/dinero/posesi\u00f3n permanecen independientes."
     },
     {
       "name": "Charge",
-      "fact_grain": "Una obligación financiera aceptada",
+      "fact_grain": "Una obligaci\u00f3n financiera aceptada",
       "candidate_keys": "(org_id, charge_id); alt (org_id, source_contract_ref, source_business_key)",
       "semantic_owner": "Financial Ledger / Finance",
       "dependency_note": "Dedupe por business key; no duplicar deuda por firmante."
     },
     {
       "name": "ChargeAdjustment",
-      "fact_grain": "Un cambio económico autorizado no-error sobre un Charge existente (waiver/concesión/crédito acordado/otro ajuste aceptado)",
+      "fact_grain": "Un cambio econ\u00f3mico autorizado no-error sobre un Charge existente (waiver/concesi\u00f3n/cr\u00e9dito acordado/otro ajuste aceptado)",
       "candidate_keys": "(org_id, charge_adjustment_id); alt (org_id, adjustment_operation_key)",
       "semantic_owner": "Financial Ledger / Finance",
-      "dependency_note": "Preserva Charge original; amount/currency/reason/policy-or-approval dependen de la clave. No usar como corrección factual ni como Payment reversal."
+      "dependency_note": "Preserva Charge original; amount/currency/reason/policy-or-approval dependen de la clave. No usar como correcci\u00f3n factual ni como Payment reversal."
     },
     {
       "name": "FinancialOpeningPosition",
-      "fact_grain": "Una posición inicial aceptada al cutover sin fabricar historia",
+      "fact_grain": "Una posici\u00f3n inicial aceptada al cutover sin fabricar historia",
       "candidate_keys": "(org_id, opening_position_id); alt (org_id, cutover_id, scope_ref, position_type, currency, beneficiary_or_custody_ref)",
       "semantic_owner": "Financial Ledger / Finance+Data",
-      "dependency_note": "No es Payment/Allocation histórico."
+      "dependency_note": "No es Payment/Allocation hist\u00f3rico."
     },
     {
       "name": "PaymentObservation",
-      "fact_grain": "Una observación/reporte de posible movimiento",
+      "fact_grain": "Una observaci\u00f3n/reporte de posible movimiento",
       "candidate_keys": "(org_id, observation_id); alt (org_id, source_namespace, external_tx_id, lifecycle_scope) cuando exista",
       "semantic_owner": "Payments / source",
-      "dependency_note": "Observación != Payment."
+      "dependency_note": "Observaci\u00f3n != Payment."
     },
     {
       "name": "Payment",
@@ -344,17 +343,17 @@
     },
     {
       "name": "PaymentEvidenceLink",
-      "fact_grain": "Evidence soporta un Payment/aceptación con rol",
+      "fact_grain": "Evidence soporta un Payment/aceptaci\u00f3n con rol",
       "candidate_keys": "(org_id, payment_id, evidence_id, evidence_role)",
       "semantic_owner": "Payments/Documents",
-      "dependency_note": "Múltiples evidencias sin copiarlas."
+      "dependency_note": "M\u00faltiples evidencias sin copiarlas."
     },
     {
       "name": "Allocation",
-      "fact_grain": "Una porción de crédito elegible se aplica a un Charge",
+      "fact_grain": "Una porci\u00f3n de cr\u00e9dito elegible se aplica a un Charge",
       "candidate_keys": "(org_id, allocation_id); alt (org_id, allocation_operation_key)",
       "semantic_owner": "Financial Ledger / Finance",
-      "dependency_note": "payment+charge no se asume único; corrección compensatoria."
+      "dependency_note": "payment+charge no se asume \u00fanico; correcci\u00f3n compensatoria."
     },
     {
       "name": "AllocationCompensation",
@@ -365,21 +364,21 @@
     },
     {
       "name": "JournalTransaction",
-      "fact_grain": "Una operación contable operativa balanceada",
+      "fact_grain": "Una operaci\u00f3n contable operativa balanceada",
       "candidate_keys": "(org_id, journal_transaction_id); alt (org_id, business_operation_key)",
       "semantic_owner": "Financial Ledger",
       "dependency_note": "Sole posting boundary."
     },
     {
       "name": "LedgerEntry",
-      "fact_grain": "Una línea inmutable de JournalTransaction",
+      "fact_grain": "Una l\u00ednea inmutable de JournalTransaction",
       "candidate_keys": "(org_id, journal_transaction_id, entry_no)",
       "semantic_owner": "Financial Ledger",
       "dependency_note": "No escritura independiente."
     },
     {
       "name": "ReconciliationSourceLine",
-      "fact_grain": "Una línea/observación externa preservada para conciliación",
+      "fact_grain": "Una l\u00ednea/observaci\u00f3n externa preservada para conciliaci\u00f3n",
       "candidate_keys": "(org_id, source_line_id); alt source namespace/business key",
       "semantic_owner": "Payments/Finance",
       "dependency_note": "No es saldo maestro."
@@ -393,35 +392,35 @@
     },
     {
       "name": "OwnerSettlement",
-      "fact_grain": "Una versión formal externa de liquidación importada",
+      "fact_grain": "Una versi\u00f3n formal externa de liquidaci\u00f3n importada",
       "candidate_keys": "(org_id, settlement_id); alt (org_id, external_system_ref, external_settlement_id, external_version)",
       "semantic_owner": "RE Owner Settlement / external formal source",
       "dependency_note": "WOIA no calcula/issue formal en v0.5.0."
     },
     {
       "name": "OwnerSettlementDocument",
-      "fact_grain": "Una versión de settlement está soportada por DocumentVersion original",
+      "fact_grain": "Una versi\u00f3n de settlement est\u00e1 soportada por DocumentVersion original",
       "candidate_keys": "(org_id, settlement_id, document_id, document_version_id)",
       "semantic_owner": "RE Owner Settlement + Documents",
       "dependency_note": "Original preservado."
     },
     {
       "name": "SettlementExtraction",
-      "fact_grain": "Una extracción atribuible de la versión formal",
+      "fact_grain": "Una extracci\u00f3n atribuible de la versi\u00f3n formal",
       "candidate_keys": "(org_id, settlement_id, extraction_revision)",
       "semantic_owner": "RE Owner Settlement",
-      "dependency_note": "Derived/inference hasta aceptación."
+      "dependency_note": "Derived/inference hasta aceptaci\u00f3n."
     },
     {
       "name": "SettlementReconciliation",
-      "fact_grain": "Una revisión compara settlement externo con hechos internos y registra discrepancias",
+      "fact_grain": "Una revisi\u00f3n compara settlement externo con hechos internos y registra discrepancias",
       "candidate_keys": "(org_id, settlement_id, reconciliation_revision)",
       "semantic_owner": "Finance",
       "dependency_note": "No sobrescribe fuente formal."
     },
     {
       "name": "SettlementDeliveryPackage",
-      "fact_grain": "Una versión aprobada de contenido para entrega",
+      "fact_grain": "Una versi\u00f3n aprobada de contenido para entrega",
       "candidate_keys": "(org_id, settlement_id, delivery_package_version)",
       "semantic_owner": "Finance; Customer Service sends",
       "dependency_note": "Delivery != payout."
@@ -435,21 +434,21 @@
     },
     {
       "name": "MaintenanceReport",
-      "fact_grain": "Un reporte/observación del problema",
+      "fact_grain": "Un reporte/observaci\u00f3n del problema",
       "candidate_keys": "(org_id, report_id)",
       "semantic_owner": "RE Maintenance",
-      "dependency_note": "Reporte != diagnóstico/aceptación."
+      "dependency_note": "Reporte != diagn\u00f3stico/aceptaci\u00f3n."
     },
     {
       "name": "VendorQuote",
-      "fact_grain": "Una cotización versionada de vendor para Case/scope",
+      "fact_grain": "Una cotizaci\u00f3n versionada de vendor para Case/scope",
       "candidate_keys": "(org_id, quote_id, version_no)",
       "semantic_owner": "Vendor Management",
       "dependency_note": "Original Document linked separately."
     },
     {
       "name": "VendorQuoteLine",
-      "fact_grain": "Una línea de QuoteVersion",
+      "fact_grain": "Una l\u00ednea de QuoteVersion",
       "candidate_keys": "(org_id, quote_id, version_no, line_no)",
       "semantic_owner": "Vendor Management",
       "dependency_note": "No mezclar omissions con cero."
@@ -463,14 +462,14 @@
     },
     {
       "name": "MaintenanceOutcome",
-      "fact_grain": "Un resultado físico/aceptación atribuible",
+      "fact_grain": "Un resultado f\u00edsico/aceptaci\u00f3n atribuible",
       "candidate_keys": "(org_id, outcome_id)",
       "semantic_owner": "RE Maintenance + Operations evidence",
       "dependency_note": "Completion != liability/payment."
     },
     {
       "name": "MaintenanceCostProposal",
-      "fact_grain": "Una propuesta de atribución financiera del costo",
+      "fact_grain": "Una propuesta de atribuci\u00f3n financiera del costo",
       "candidate_keys": "(org_id, cost_proposal_id)",
       "semantic_owner": "RE Maintenance / Property Management",
       "dependency_note": "Finance acepta/postea consecuencia separada."
@@ -491,14 +490,14 @@
     },
     {
       "name": "PropertyServiceCycle",
-      "fact_grain": "Un período/ciclo operativo de revisión",
+      "fact_grain": "Un per\u00edodo/ciclo operativo de revisi\u00f3n",
       "candidate_keys": "(org_id, service_account_id, cycle_id)",
       "semantic_owner": "RE Property Services",
       "dependency_note": "Cycle organiza observaciones; Due Work conserva timing."
     },
     {
       "name": "PropertyServiceObservation",
-      "fact_grain": "Una observación fuente de estado/importe/due-date en cycle/round",
+      "fact_grain": "Una observaci\u00f3n fuente de estado/importe/due-date en cycle/round",
       "candidate_keys": "(org_id, observation_id); alt source observation key",
       "semantic_owner": "RE Property Services / external source",
       "dependency_note": "Stale/failed != debt/good standing."
@@ -519,7 +518,7 @@
     },
     {
       "name": "DocumentVersion",
-      "fact_grain": "Una versión exacta de bytes/metadatos",
+      "fact_grain": "Una versi\u00f3n exacta de bytes/metadatos",
       "candidate_keys": "(org_id, document_id, version_id); alt provider namespace+native_id+native_version",
       "semantic_owner": "Documents / backing provider",
       "dependency_note": "USABLE solo tras verificar bytes/version."
@@ -564,14 +563,14 @@
       "fact_grain": "Una DocumentVersion soporta MaintenanceCase/WorkOrder/Outcome",
       "candidate_keys": "(org_id, document_id, version_id, maintenance_case_id, link_role, linked_record_ref)",
       "semantic_owner": "Documents + RE Maintenance",
-      "dependency_note": "Implementación debe usar FK tipada por subtipo, no unchecked polymorphic id."
+      "dependency_note": "Implementaci\u00f3n debe usar FK tipada por subtipo, no unchecked polymorphic id."
     },
     {
       "name": "FilePlacement",
-      "fact_grain": "Una Document tiene una ubicación lógica/namespace vigente",
+      "fact_grain": "Una Document tiene una ubicaci\u00f3n l\u00f3gica/namespace vigente",
       "candidate_keys": "(org_id, placement_id); active unique (org_id, namespace_id, logical_path)",
       "semantic_owner": "Documents",
-      "dependency_note": "Path es proyección; move no cambia Document."
+      "dependency_note": "Path es proyecci\u00f3n; move no cambia Document."
     },
     {
       "name": "Appointment",

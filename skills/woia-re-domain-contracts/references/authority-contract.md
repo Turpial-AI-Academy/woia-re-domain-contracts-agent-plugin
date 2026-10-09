@@ -1,16 +1,8 @@
-# Versioned source contract
+# Authority and Finance Contract
 
 
-Historical implementation-status lines describe source chronology, not current provider validation.
 
-# 24 — Authority / Finance Final Contract
-
-**Date:** 2026-10-06
-**Implementation:** NOT_AUTHORIZED
-
-## 1. Purpose
-
-This contract reconciles authority, protected human decisions and Finance against B1–B4 so B5 can build a repository/dependency graph without inventing an approval service, financial policy or hidden business power.
+This contract defines authority, protected human decisions and Finance without introducing an approval service, financial policy or hidden business power.
 
 ## 2. Authority planes
 
@@ -27,7 +19,7 @@ Core owns generic:
 - current revision checks;
 - no-authority-from-wake/request/install/access semantics.
 
-B4 organization resource resolution supplies versioned organization policy references without copying private truth into Projects.
+Organization resource resolution supplies versioned organization policy references without copying private truth into Projects.
 
 ### 2.2 Organization policy plane
 

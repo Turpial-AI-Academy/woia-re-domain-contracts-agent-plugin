@@ -1,44 +1,10 @@
-# Versioned source contract
+# Capability and Provider Contract
 
-
-Historical implementation-status lines describe source chronology, not current provider validation.
-
-# 21 — Capability / Provider Map for WOIA Real Estate v0.5.7
-
-## B5 final graph projection — 2026-10-06
-
-
-B5 does not alter semantic ownership. It concretizes target department eligibility, including compatible consumer-scope releases where an existing manifest currently names fewer departments. The final graph has 79 plugin identities and 16 marketplace views. `woia-vendor-coordination` is the Vendor Management root; `woia-vendor-management` remains the capability provider. No Authority/E2E plugin is added.
-
-## Authority / Finance completion — 2026-10-06
-
-The compatible Finance action preserves provider ownership: `woia-financial-ledger.finance.charge.adjust`. It represents an authorized non-error waiver/concession/adjustment and preserves the original Charge.
-
-## B4 Core disposition update — 2026-10-06
-
-The `woia-core` B2 disposition `EXTEND_EXISTING / GLOBAL_PREREQUISITE` is now backed by the exact Core candidate `fecd47ac19b882b2675dd57e138532127ec56969` and Ecosystem candidate `9b228e839d0a6831454dc5be2a29fea7bf5c7c1b`.
-
-This closes the missing global contract/implementation prerequisite; it does not convert those branch commits into released/admitted runtime support. B5 must select exact release dependencies and final marketplace/repository graph.
-
-## B3 action-contract completion — 2026-10-06
-
-The Domain / Data contract includes four actions required by the exact source/transaction semantics:
-
-- `woia-payments.payment.accept`;
-- `woia-financial-ledger.finance.opening-position.record`;
-- `woia-re-property-services.property-service.responsibility.record`;
-- `woia-re-owner-settlement.owner-settlement.source-version.accept`.
-
-These are compatible action-surface completions, not new provider identities. B3 also fixes source authority, typed relationships, transaction boundaries and logical 5NF relations. Any narrower organization source/writer rule wins at runtime.
-
-**Date:** 2026-10-06.
-**Input:** ad78ceea5a3b74e3ee1bbbadb0112100e882d27e.
-**Implementation:** NOT_AUTHORIZED.
-**Operator/business E2E:** deferred until the complete initial ecosystem candidate is published.
+The distribution contains 79 plugin identities and 16 departmental marketplace views. Vendor Coordination is the Vendor Management root; Vendor Management remains its capability provider. Finance charge adjustments preserve the original accepted Charge and require exact independent authority.
 
 ## 1. Purpose and rules
 
-This document is the complete capability/provider allocation for the reconciled sixteen-department graph. It replaces the old G01–G19/V01–V08 target as build authority while preserving that history for comparison.
+This document defines capability/provider ownership and permitted consumers across the sixteen departments.
 
 The map answers five questions for every capability family:
 

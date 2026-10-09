@@ -1,21 +1,10 @@
-# Versioned source contract
+# Canonical Domain and Data Contract
 
-
-Historical implementation-status lines describe source chronology, not current provider validation.
-
-# 22 — Canonical Domain / Data Contract
-
-## Authority / Finance compatible completion — 2026-10-06
-
-ADR-0029 adds one missing canonical fact discovered after B3: `ChargeAdjustment`. The current logical canonical catalog therefore contains **85** relations. A factual Charge correction and a waiver/concession/non-error economic change are distinct; neither rewrites the original accepted Charge.
-**Date:** 2026-10-06.
-**Input review HEAD:** `e79fa82d9a332924284385373f82867cff950299`.
-**Implementation:** NOT_AUTHORIZED.
-**Physical DBMS/schema/migrations:** NOT_IMPLEMENTED / NOT_SELECTED.
+The logical catalog contains 85 relations. ChargeAdjustment records a waiver, concession or other non-error economic change; it is distinct from factual Charge correction and preserves the original accepted Charge.
 
 ## 1. Purpose
 
-This document closes the concrete Domain / Data contracts needed before implementation. It is the logical source for Software design of the Real Estate data layer and for provider contracts selected in docs/21.
+This document defines the logical Domain / Data contract for the Real Estate data layer and its owning providers.
 
 It fixes:
 - canonical business facts and relationship ownership;
@@ -162,7 +151,7 @@ Organization configuration selects actual external system/account/dataset IDs. T
 | Fact / operation scope | Canonical accepted state / writer | External source role | Conflict / freshness rule |
 |---|---|---|---|
 | Subject identity | `woia-identity` | CRM/PMS/other sources provide attributed identity/contact observations and external refs | Data owns ambiguity/merge process; no automatic latest-wins merge |
-| contextual Property/Lease/Vendor/Workforce/Finance relationships | owning provider from docs/21 | external evidence may support relationship | semantic owner accepts; Identity does not write relationship |
+| contextual Property/Lease/Vendor/Workforce/Finance relationships | owning provider from the capability/provider contract | external evidence may support relationship | semantic owner accepts; Identity does not write relationship |
 | Property inventory | `woia-re-property-data` after accepted intake/import | portals/PMS/registry/docs may provide observations/evidence | Property Acquisition/Data resolve conflicts before consequential use |
 | right/title claims | accepted PropertyRightClaim backed by source Evidence | professional/registry/document source remains attributed | does not grant Mandate authority by itself |
 | Mandate | `woia-re-property-data` | signed/competent source evidence | current effective version required for dependent action |
