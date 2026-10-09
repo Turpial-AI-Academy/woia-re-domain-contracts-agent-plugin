@@ -24,4 +24,4 @@ Retain stable operation/source IDs, exact version and evidence. Unknown remote e
 
 ## Permanent domain resources
 
-Resolve [the exact 85 relations](references/logical-relations.json) for logical keys, grain and owner. For cross-domain qualification load [the E2E design](references/e2e-design.md), [Sale](evals/e2e/sale/SPEC.md), [Rental](evals/e2e/rental/SPEC.md), [Property Management](evals/e2e/property-management/SPEC.md), [synthetic fixture](evals/fixtures/synthetic.json) and [assertion schema](evals/fixtures/assertion.schema.json). Sales, Leasing and Property Management retain accountable ownership. These stored specifications do not execute or imply operator PASS.
+Resolve [the exact 85 relations](references/logical-relations.json) for logical keys, grain and owner. Sales, Leasing and Property Management retain accountable ownership. Validate current domain assertions against the operation and authority contracts before accepting a fact.

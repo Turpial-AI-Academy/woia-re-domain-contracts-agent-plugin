@@ -114,7 +114,7 @@ The candidate keys listed below are **logical minimum contracts**. B3 closes the
 | `LedgerEntry` | Una línea inmutable de JournalTransaction | (org_id, journal_transaction_id, entry_no) | Financial Ledger | No escritura independiente. |
 | `ReconciliationSourceLine` | Una línea/observación externa preservada para conciliación | (org_id, source_line_id); alt source namespace/business key | Payments/Finance | No es saldo maestro. |
 | `ReconciliationMatch` | Un importe de una source line se reconcilia contra un target financiero concreto | (org_id, reconciliation_match_id); alt (org_id, reconciliation_operation_key) | Finance | Mantener source,target,amount completos; no overmatching por joins. |
-| `OwnerSettlement` | Una versión formal externa de liquidación importada | (org_id, settlement_id); alt (org_id, external_system_ref, external_settlement_id, external_version) | RE Owner Settlement / external formal source | WOIA no calcula/issue formal en v0.5.0. |
+| `OwnerSettlement` | Una versión formal externa de liquidación importada | (org_id, settlement_id); alt (org_id, external_system_ref, external_settlement_id, external_version) | RE Owner Settlement / external formal source | WOIA no calcula/issue formal en v0.5.6. |
 | `OwnerSettlementDocument` | Una versión de settlement está soportada por DocumentVersion original | (org_id, settlement_id, document_id, document_version_id) | RE Owner Settlement + Documents | Original preservado. |
 | `SettlementExtraction` | Una extracción atribuible de la versión formal | (org_id, settlement_id, extraction_revision) | RE Owner Settlement | Derived/inference hasta aceptación. |
 | `SettlementReconciliation` | Una revisión compara settlement externo con hechos internos y registra discrepancias | (org_id, settlement_id, reconciliation_revision) | Finance | No sobrescribe fuente formal. |
@@ -180,7 +180,7 @@ Organization configuration selects actual external system/account/dataset IDs. T
 | Charge/Journal/Allocation | `woia-financial-ledger` for owned monetary scope | agreements/invoices/external projections are source inputs | Finance accepts; one writer per scope |
 | PaymentObservation | `woia-payments` attributable observation store | bank/provider/external admin/competent human evidence | observation never equals Payment |
 | Payment | `woia-payments.payment.accept` under effective Finance Source Authority rule | accepted source supplies confirmation basis | conflict/unknown blocks acceptance or dependent distribution |
-| OwnerSettlement formal calculation | configured external administration system | authoritative external formal source | WOIA imports/reconciles; no formal recalc/issue in v0.5.0 |
+| OwnerSettlement formal calculation | configured external administration system | authoritative external formal source | WOIA imports/reconciles; no formal recalc/issue in v0.5.6 |
 | PropertyServiceObservation | selected external service source per ServiceAccount | provider/government/service portal/API/manual permitted source | stale/failed query = unknown, not debt/good standing |
 | Document bytes/version | selected backing file provider for bytes; `woia-documents` for canonical metadata/links/usability | Drive/object/local/etc native object | DocumentVersion usable only after byte/version verification |
 | Appointment | `woia-scheduling` / Customer Service mutation | calendar provider supplies remote observations | create/reschedule/cancel Customer Service-only |
@@ -334,7 +334,7 @@ No configured/accepted fee policy means no fee. This closes the architecture con
 
 ## 8. External owner settlement contract
 
-The external administration system remains formal calculator in initial v0.5.0.
+The external administration system remains formal calculator in initial v0.5.6.
 
 ### Source version acceptance
 
@@ -446,7 +446,7 @@ No unlimited bidirectional last-write-wins synchronization is supported.
 - Authenticate principal and organization before retrieval.
 - Resolve field/resource/purpose access before model processing.
 - Mutation commands enforce current authority and expected revision.
-- Cross-organization FK/reference creation is denied unless a separately authorized cross-org contract explicitly exists; none is part of v0.5.0.
+- Cross-organization FK/reference creation is denied unless a separately authorized cross-org contract explicitly exists; none is part of v0.5.6.
 - Administrative/migration/backup roles are separate from ordinary runtime roles.
 - Secrets are references, never canonical business data or prompt content.
 - Historical/current authorization are separate: a historical document may remain readable only under current permitted access.

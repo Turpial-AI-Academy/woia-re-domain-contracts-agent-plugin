@@ -4,7 +4,7 @@ Source: Turpial-AI-Academy/woia-real-estate @ eb0a7278188b2f9968e21ed4299f08184d
 
 Historical implementation-status lines describe source chronology, not current provider validation.
 
-# 21 — Capability / Provider Map for WOIA Real Estate v0.5.0
+# 21 — Capability / Provider Map for WOIA Real Estate v0.5.6
 
 ## B5 final graph projection — 2026-10-06
 
@@ -67,7 +67,7 @@ The actual selected contracts inspected for this review establish:
 - `marketing.audience`: read/analysis; Customer Data references; no mutation/contact.
 - `marketing.content-copy`: draft/review only; publication separate.
 - `marketing.creative`: creative direction/asset QA; optional ComfyUI generation; publication separate.
-- `marketing.channel-execution`: broad effectful publication/campaign/external communication/configuration/spend contract in v0.5.0.
+- `marketing.channel-execution`: broad effectful publication/campaign/external communication/configuration/spend contract in v0.5.6.
 - `marketing.analytics`: read-only measurement/recommendation.
 - `sales.lead-qualification`: read/evaluation; score is not decision.
 - `sales.follow-up`: currently includes plan/draft/send semantics.
@@ -91,7 +91,7 @@ Targeted repository searches did not find admitted or existing Turpial repositor
 
 ## 4. Existing provider decisions
 
-| Provider | Decision | Required v0.5.0 use | Marketplace exposure |
+| Provider | Decision | Required v0.5.6 use | Marketplace exposure |
 |---|---|---|---|
 | `woia-core` | EXTEND_EXISTING / B4 IMPLEMENTED_CANDIDATE | Reuse current mechanics plus candidate global contracts for Due Work, autonomous delivery/activation/result/recovery, organization Project resource binding and independent base+delta selection/snapshots; release/host/store qualification remains later | all departments as dependency |
 | `woia-chatgpt-project-bridge` | REUSE_CONDITIONAL | ChatGPT/Codex native Project-to-Project transport only where host support exists; never external human communication or universal transport | all departments when selected host supports it |
@@ -112,16 +112,16 @@ Targeted repository searches did not find admitted or existing Turpial repositor
 
 The compatible extensions below are not optional polish.
 
-- **Core:** retain the existing identity and all healthy mechanics, but B4 must deliver a compatible Core/Ecosystem evolution for the global contracts that current v0.5.2 does not prove: Due Work, autonomous receiver delivery/activation/result/recovery, organization/Project resource binding needed by Data, and independent base+delta composition/snapshot evidence. This is not a new Core plugin.
+- **Core:** retain the existing identity and all healthy mechanics, but B4 must deliver a compatible Core/Ecosystem evolution for the global contracts that current v0.5.6 does not prove: Due Work, autonomous receiver delivery/activation/result/recovery, organization/Project resource binding needed by Data, and independent base+delta composition/snapshot evidence. This is not a new Core plugin.
 - **Marketing Strategy / Audience:** widen consumer scope to Ads. Audience also becomes source-agnostic at the contract boundary: it consumes scoped identity/customer/audience evidence references; Customer Data is one optional organization adapter, not a required dependency for every Ads/Marketing use.
 - **Sales Lead Qualification / Follow-up:** remove any mandatory dependency on Customer Data from their cross-department contract. Resolve stable identity through `woia-identity`, Opportunity/domain references through their owning provider, and Customer Data only when the organization selects it as an applicable CRM/customer source.
 - **Sales Pipeline:** use typed Opportunity/pipeline state rather than customer-record state and preserve Offer/Reservation/Lease/Sale as separate domain facts.
 
 The behavior-changing execution extensions below are also mandatory: Their currently selected releases are **not sufficient by themselves** for the final Real Estate graph:
 
-- Channel Execution v0.5.0 advertises person communication and spend. Real Estate must expose only Marketing public/non-person distribution from this provider.
-- Sales Follow-up v0.5.0 can execute communication. Real Estate must deterministically prevent Sales/Leasing direct external send.
-- Sales Pipeline v0.5.0 binds pipeline/customer state to Customer Data. Real Estate must use typed Opportunity/pipeline state and preserve domain facts.
+- Channel Execution v0.5.6 advertises person communication and spend. Real Estate must expose only Marketing public/non-person distribution from this provider.
+- Sales Follow-up v0.5.6 can execute communication. Real Estate must deterministically prevent Sales/Leasing direct external send.
+- Sales Pipeline v0.5.6 binds pipeline/customer state to Customer Data. Real Estate must use typed Opportunity/pipeline state and preserve domain facts.
 - Lead Qualification must accept the current typed shared references/playbook criteria and broader eligible consumers without promoting evaluation to acceptance.
 
 Content Copy, Creative and ComfyUI extensions only broaden eligible Ads consumption; their core action semantics remain.
@@ -355,7 +355,7 @@ Content Copy, Creative and ComfyUI extensions only broaden eligible Ads consumpt
 
 **Consumers:** Finance, Property Management, Customer Service read delivery package.
 
-**Initial boundary:** external administration system remains formal calculator. No authoritative `calculate` or `issue` operation in the initial v0.5.0 contract. Customer Service delivers approved content; delivery is not payout.
+**Initial boundary:** external administration system remains formal calculator. No authoritative `calculate` or `issue` operation in the initial v0.5.6 contract. Customer Service delivers approved content; delivery is not payout.
 
 ### 6.9 `woia-re-maintenance` — NEW_REQUIRED
 
@@ -420,7 +420,7 @@ Sales/Leasing own the follow-up method and plan. Sales Follow-up produces plan/d
 Documents stores/generates/extracts/signs artifacts. Property/Lease/Finance/Legal providers own accepted domain state. A PDF, hash, signature-provider receipt or extraction does not replace competent domain acceptance.
 
 ### Ledger vs Payments vs Owner Settlement
-Ledger owns obligations/allocations/journal. Payments owns observed/executed money Effects. Owner Settlement v0.5.0 imports/tracks/reconciles the external formal settlement and delivery package; it does not become the formal calculator. Customer Service delivery remains separate from payout.
+Ledger owns obligations/allocations/journal. Payments owns observed/executed money Effects. Owner Settlement v0.5.6 imports/tracks/reconciles the external formal settlement and delivery package; it does not become the formal calculator. Customer Service delivery remains separate from payout.
 
 ### Workforce vs Identity vs Technology
 Identity represents the person. Workforce represents employment/assignment/competence/coverage. Technology applies/revokes actual technical access after an accepted People/authority contribution. Training never grants access.
