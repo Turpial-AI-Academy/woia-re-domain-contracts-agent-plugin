@@ -24,4 +24,6 @@ Retain stable operation/source IDs, exact version and evidence. Unknown remote e
 
 ## Permanent domain resources
 
+Load [the descriptor binding contract](references/descriptor-bindings.md) when selecting a generic consumer's normalization target, required outcomes, typed domain links, document presentation, department specialization or represented-principal policy. Use the pure factories in `scripts/domain-descriptors.mjs`; the qualified host independently accepts and scopes each immutable descriptor. A factory output supplies no authority or trusted binding.
+
 Resolve [the exact 85 relations](references/logical-relations.json) for logical keys, grain and owner. Sales, Leasing and Property Management retain accountable ownership. Validate current domain assertions against the operation and authority contracts before accepting a fact.

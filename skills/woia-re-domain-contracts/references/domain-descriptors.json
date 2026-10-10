@@ -1,0 +1,235 @@
+{
+  "schema": "dev.woia.real-estate-descriptor-resources/v1",
+  "normalization": {
+    "id": "real-estate.canonical-normalization",
+    "target": "5NF",
+    "required_proofs": [
+      "1NF",
+      "2NF",
+      "3NF",
+      "BCNF",
+      "4NF",
+      "5NF"
+    ],
+    "independent_evidence": [
+      "lossless_reconstruction_evidence",
+      "enforceability_evidence"
+    ],
+    "relation_catalog": "logical-relations.json",
+    "relation_count": 85
+  },
+  "outcomes": {
+    "leasing": {
+      "id": "real-estate.leasing-outcomes",
+      "phases": {
+        "placement": [
+          "application_evidence",
+          "competent_decision"
+        ],
+        "agreement": [
+          "signature",
+          "initial_money",
+          "physical_handover"
+        ],
+        "administration_transfer": [
+          "receiver_acceptance"
+        ]
+      }
+    },
+    "asset-management": {
+      "id": "real-estate.asset-management-outcomes",
+      "phases": {
+        "administration_entry": [
+          "receiver_acceptance",
+          "source_position"
+        ],
+        "maintenance_outcome": [
+          "work_evidence",
+          "competent_acceptance"
+        ],
+        "contract_change": [
+          "competent_decision",
+          "source_version"
+        ]
+      }
+    }
+  },
+  "document_links": {
+    "schema": "dev.woia.document-link-contract/v1",
+    "target_types": [
+      {
+        "type": "Subject",
+        "owner_provider": "woia-identity",
+        "relation": "DocumentSubjectLink"
+      },
+      {
+        "type": "Property",
+        "owner_provider": "woia-re-property-data",
+        "relation": "DocumentPropertyLink"
+      },
+      {
+        "type": "MandateVersion",
+        "owner_provider": "woia-re-property-data",
+        "relation": "DocumentMandateLink"
+      },
+      {
+        "type": "LeaseVersion",
+        "owner_provider": "woia-re-lease-administration",
+        "relation": "DocumentLeaseLink"
+      },
+      {
+        "type": "OwnerSettlement",
+        "owner_provider": "woia-re-owner-settlement",
+        "relation": "DocumentSettlementLink"
+      },
+      {
+        "type": "MaintenanceCase",
+        "owner_provider": "woia-re-maintenance",
+        "relation": "DocumentMaintenanceLink"
+      },
+      {
+        "type": "WorkOrder",
+        "owner_provider": "woia-re-maintenance",
+        "relation": "DocumentMaintenanceLink"
+      },
+      {
+        "type": "MaintenanceOutcome",
+        "owner_provider": "woia-re-maintenance",
+        "relation": "DocumentMaintenanceLink"
+      }
+    ]
+  },
+  "document_presentation": {
+    "namespaces": [
+      "Property",
+      "Lease",
+      "Person/Organization",
+      "Mandate",
+      "Settlement",
+      "Maintenance",
+      "organization-material"
+    ],
+    "authoritative_identity": "Document",
+    "path_is_projection": true
+  },
+  "representation": {
+    "schema": "dev.woia.real-estate-representation-policy/v1",
+    "source_relations": [
+      "Mandate",
+      "MandateVersion",
+      "MandateAuthorityScope"
+    ],
+    "required_checks": [
+      "represented-principal",
+      "mandate-version",
+      "property-scope",
+      "power-code",
+      "source-authority-map",
+      "policy-revision",
+      "recipient-counterparty",
+      "material-command-digest",
+      "monetary-and-aggregate-limits",
+      "approval-validity",
+      "hold-revocation-emergency-stop"
+    ],
+    "initial_human_boundaries": [
+      "commercial Negotiation",
+      "Offer creation/transmission/acceptance as a commercial commitment",
+      "economic obligation exception/waiver/concession unless an explicitly approved fixed exact action",
+      "legal/professional applicability and external professional acts",
+      "grant/delegation creation or enlargement",
+      "exceptional beneficiary/account substitution"
+    ],
+    "model_contributions": [
+      "prepare",
+      "compare",
+      "summarize",
+      "record attributable competent human decisions"
+    ]
+  },
+  "sales": {
+    "id": "real-estate.opportunity-links",
+    "entity": "Opportunity",
+    "domain_refs": [
+      {
+        "field": "property_ref",
+        "entity": "Property",
+        "owner_plugin": "woia-re-property-data",
+        "required": false
+      },
+      {
+        "field": "offer_ref",
+        "entity": "Offer",
+        "owner_plugin": "woia-re-transactions",
+        "required": false
+      },
+      {
+        "field": "reservation_ref",
+        "entity": "Reservation",
+        "owner_plugin": "woia-re-transactions",
+        "required": false
+      },
+      {
+        "field": "lease_ref",
+        "entity": "Lease",
+        "owner_plugin": "woia-re-lease-administration",
+        "required": false
+      },
+      {
+        "field": "sale_transaction_ref",
+        "entity": "SaleTransaction",
+        "owner_plugin": "woia-re-transactions",
+        "required": false
+      },
+      {
+        "field": "payment_ref",
+        "entity": "Payment",
+        "owner_plugin": "woia-payments",
+        "required": false
+      },
+      {
+        "field": "negotiation_ref",
+        "entity": "Negotiation",
+        "owner_plugin": "woia-re-transactions",
+        "required": false
+      }
+    ]
+  },
+  "marketing": {
+    "id": "real-estate.marketing-publication",
+    "source_map_required": true,
+    "allowed_operations": [
+      "publish",
+      "update-publication",
+      "withdraw-publication"
+    ],
+    "public_non_person_only": true,
+    "paid_allowed": false,
+    "domain_source_kinds": [
+      "Property",
+      "Listing"
+    ],
+    "outcome_requires": [
+      "remote-observation",
+      "listing-truth-acceptance-separate"
+    ]
+  },
+  "administration_residuals": {
+    "initial_formal_calculator": "external accepted owner-settlement",
+    "residual_facts": [
+      "keys",
+      "repairs",
+      "deposits",
+      "disputes"
+    ],
+    "accepted_sources": {
+      "Lease": "woia-re-lease-administration",
+      "OwnerSettlement": "woia-re-owner-settlement",
+      "MaintenanceCase": "woia-re-maintenance"
+    },
+    "unknown_does_not_establish": [
+      "debt",
+      "good-standing"
+    ]
+  }
+}

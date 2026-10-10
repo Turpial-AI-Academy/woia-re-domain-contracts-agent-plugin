@@ -1,6 +1,6 @@
 # woia-re-domain-contracts
 
-Version 0.5.7. Permanent Real Estate logical contracts and cross-domain evaluation resources with no business effects.
+Version 0.5.8. Permanent Real Estate logical contracts and cross-domain evaluation resources with no business effects.
 
 Portable entry: [Agent Skill](skills/woia-re-domain-contracts/SKILL.md).
 
