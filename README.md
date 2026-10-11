@@ -4,7 +4,7 @@ Version 0.5.8. Permanent Real Estate logical contracts and cross-domain evaluati
 
 Portable entry: [Agent Skill](skills/woia-re-domain-contracts/SKILL.md).
 
-Run `mise run bootstrap`, `mise run doctor`, `pnpm test`, `pnpm run ci:fast`. Central certification: Ecosystem v0.5.7 `mise run plugin:certify-thin --repo <absolute-path>`.
+Run `mise run bootstrap`, `mise run doctor`, `pnpm test`, `pnpm run ci:fast`. For central certification, run `mise run plugin:certify-thin --repo <absolute-path>` from the canonical WOIA Ecosystem repository.
 
 Local helpers operate only on provided data. No backend, DBMS, external adapter, authority policy, fees, account or legal applicability is selected. Adapter qualification and Operator E2E remain NOT_RUN; no Production Ready claim.
 
